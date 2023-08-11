@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic CV</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #202020;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .cv-container {
+      margin-top: 300px;
+      background-color: #353535;
+      border-radius: 20px;
+      padding: 20px;
+      width: 80%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .cv-container {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .cv-container h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .cv-about {
+      position: relative;
+      margin-bottom: 20px;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .cv-about {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      background-color: #404040;
+    }
+
+    .cv-about h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+
+    .cv-about h2 {
+      color: #20c997;
+    }
+
+    .cv-about p {
+      line-height: 1.6;
+    }
+
+     .cv-section {
+      position: relative;
+      margin-bottom: 20px;
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .cv-section {
+      cursor: pointer;
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      background-color: #404040;
+    }
+
+    .cv-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+
+    .cv-section h2 {
+      color: #20c997;
+    }
+
+    .cv-section p {
+      line-height: 1.6;
+    }
+
+    .button {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s, transform 0.3s;
+      transition-delay: 0.1s;
+    }
+
+    .button:hover {
+      background-color: #20c997;
+      transform: scale(1.05);
+    }
+
+    /* Attractive Sticker Animation */
+    .cv-section::before {
+      content: "★";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 24px;
+      color: #f3c623;
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .cv-section:hover::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Attractive Sticker Animation */
+    .cv-about::before {
+      content: "★";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 24px;
+      color: pink;
+      opacity: 0;
+      transform: scale(10);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .cv-about:hover::before {
+      opacity: 1;
+      transform: scale(3);
+    }
+
+        .cv-section::before {
+      content: "★";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 24px;
+      color: lightyellow;
+      opacity: 0;
+      transform: scale(10);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .cv-section:hover::before {
+      opacity: 100;
+      transform: scale(3);
+    }
+
+    /* Media Queries */
+
+    /* Mobile Phones */
+    @media (max-width: 600px) {
+      .cv-container {
+        width: 90%;
+      }
+    }
+
+    /* Tablets */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .cv-container {
+        width: 70%;
+      }
+    }
+
+    /* Desktops and Larger Screens */
+    @media (min-width: 1025px) {
+      .cv-container {
+        width: 60%;
+      }
+    }
+
+    /* Hidden Experience Details */
+    .experience-details {
+      display: none;
+      padding-top: 10px;
+    }
+
+    .cv-section.active .experience-details {
+      display: block;
+      opacity: 0;
+      animation: fade-in 0.5s forwards;
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+     /* Add futuristic options */
+    .cv-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Floating Particles Animation */
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background-color: #f3c623;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particles 10s linear infinite;
+    }
+
+    @keyframes particles {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-100vh);
+      }
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background-color: #353535;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    .cv-container.active .skills-section {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .skill {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .skill-label {
+      flex: 1;
+    }
+
+    .skill-bar {
+      flex: 2;
+      background-color: #404040;
+      border-radius: 5px;
+      height: 10px;
+      position: relative;
+    }
+
+    .skill-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-radius: 5px;
+      background-color: #20c997;
+      animation: progress-bar 2s ease-in-out;
+    }
+
+    @keyframes progress-bar {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+     /* Contact Details Popup */
+    .contact-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #353535;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact-popup.active {
+      display: block;
+    }
+     .contact-popup h3 {
+      margin-top: 0;
+    }
+
+    .contact-popup img {
+      width: 30px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+ /* Profile Photo Styles */
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 20px;
+  transition: transform 0.3s, opacity 0.3s;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+/* Photo Visibility when Section is Not Clicked */
+.cv-section:not(.active) + .profile-photo {
+  display: block;
+  opacity: 1;
+}
+
+/* Photo Transformation when Section is Clicked */
+.cv-section.active + .profile-photo {
+  transform: translateY(0);
+  opacity: 1;
+  margin-top: 20px;
+}
+
+/* Photo Animation */
+.profile-photo {
+
+  position: absolute;
+  left: 10%;
+  transform: translateX(40%) rotateY(360deg); /* Initial rotation angle is 0 degrees */
+  transition: transform 0.5s ease-in-out;
+}
+
+.cv-section.active .profile-photo {
+  transform: translateX(-100%) rotateY(180deg); /* Rotate 360 degrees and move to the left */
+}
+
+.profile-photo:hover{
+  cursor: pointer;
+  scale: 1.55;
+  transition: 0.7s;
+}
+
+
+#coding-guy {
+  margin-left: 500px;
+  position: absolute;
+  mix-blend-mode: plus-lighter;
+  margin-top: 0px;
+  z-index: -1; /* Place the coding guy behind the shadow box */
+}
+
+
+/* GIF Overlay */
+.gif-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  z-index: 9999;
+  transition: opacity 1s ease-in-out;
+}
+
+
+.opening-gif {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Fade-out animation for GIF overlay */
+.gif-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none; /* Allow interactions with the content below */
+  transition: opacity 1s ease-in-out;
+}
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="cv-container"onclick="activateSkills(this)">
+    <!-- GIF Overlay -->
+  <div class="gif-overlay" id="gifOverlay">
+    <img class="opening-gif" src="https://cdn.dribbble.com/users/2131993/screenshots/4948736/thoughtworks-gif_dribbble.gif" alt="Opening GIF">
+  </div>
+    <h1>Hello there.</h1>
+
+   <div class="cv-about">
+  <h2>About Me</h2>
+  <p id="aboutMeText"></p>
+  <button class="button" onclick="openContactPopup()">Contact Me</button>
+</div>
+
+    <!-- Contact Details Popup -->
+    <div class="contact-popup" id="contactPopup">
+      <h3>Contact Details</h3>
+      <p><strong>Phone:</strong> +91-9643319000</p>
+      <p><strong>Instagram:</strong> @pvtt.alpha_</p>
+      <p><strong>WhatsApp:</strong> +91-9643319000</p>
+      <div>
+        <a href="tel:+919643319000"><img src="https://png.pngtree.com/png-vector/20201028/ourmid/pngtree-phone-icon-in-solid-circle-png-image_2380227.jpg" alt="Phone"></a>
+        <a href="https://www.instagram.com/pvtt.alpha_/"><img src="https://w7.pngwing.com/pngs/16/46/png-transparent-made-in-kings-heath-instagram-facebook-female-graphy-instagram-logo-instagram-icon-text-trademark-magenta.png" alt="Instagram"></a>
+        <a href="https://wa.me/9643319000"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="WhatsApp"></a>
+        <button class="button" onclick="copyPhoneNumber()">Copy Phone Number</button>
+      </div>
+    </div>
+
+    <div class="cv-section" onclick="toggleDetails(this)">
+      <h2>Click here for my skills and education</h2>
+      <div class="experience-details" >
+        <p><strong>HTML:</strong>Master</p>
+        <p><strong>CSS:</strong>Master</p>
+        <p><strong>Javascript:</strong>Master</p>
+        <p><strong>Node.js:</strong>Intermediate</p>
+        <p><strong>React.js:</strong>Intermediate</p>
+        <p><strong>Python:</strong>Intermediate</p>
+      </div>
+    </div>
+
+  <!-- Photo -->
+  <img id="profilePhoto" class="profile-photo" src="C:\Users\Dell\Downloads\me.jpg" alt="Profile Photo">
+
+<img id="coding-guy" src="https://i.gifer.com/origin/f1/f1c839d0b1fd57dd8ee99936bfe7ecc8_w200.gif">
+
+    <!-- Skills Section -->
+    <div class="skills-section">
+      <h2>Skills</h2>
+      <div class="skill">
+        <div class="skill-label">HTML</div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 90%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-label">CSS</div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 80%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-label">JavaScript</div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 85%;"></div>
+        </div>
+      </div>
+       <div class="cv-section">
+      <h2>Education</h2>
+      <p>Schooling from: DIPS karol bagh, jalandhar</p><br>
+      Scored 93% in my 10th and 87% in +2(medical)
+    </div>
+    </div>
+
+    <!-- Add more sections as needed -->
+
+    <!-- Floating Particles Animation -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  
+
+  <script>
+   // JavaScript code to open the Contact Details popup
+  function openContactPopup() {
+    const contactPopup = document.getElementById("contactPopup");
+    contactPopup.classList.add("active");
+
+    // Add an event listener to the document to handle clicks outside the popup
+    document.addEventListener("click", closeContactPopupOutside);
+    
+    // Hide the skill bars when the "Contact Me" button is clicked
+    const skillsSection = document.querySelector(".skills-section");
+    skillsSection.style.transform = "translateY(100px)";
+    skillsSection.style.opacity = "0";
+  }
+
+  // JavaScript code to close the Contact Details popup
+  function closeContactPopup() {
+    const contactPopup = document.getElementById("contactPopup");
+    contactPopup.classList.remove("active");
+      // Remove the event listener when the popup is closed
+    document.removeEventListener("click", closeContactPopupOutside);
+  }
+
+  // JavaScript function to handle clicks outside the Contact Details popup
+  function closeContactPopupOutside(event) {
+    const contactPopup = document.getElementById("contactPopup");
+    const button = document.querySelector(".button");
+
+    // Check if the clicked element is outside the popup and the "Contact Me" button
+    if (!contactPopup.contains(event.target) && !button.contains(event.target)) {
+      closeContactPopup();
+    }
+  }
+
+  // JavaScript code to copy the phone number to clipboard
+  function copyPhoneNumber() {
+    const phoneNumber = "+91-9643319000";
+    const tempInput = document.createElement("input");
+    document.body.appendChild(tempInput);
+    tempInput.value = phoneNumber;
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    alert("Phone number copied to clipboard: " + phoneNumber);
+  }
+  
+  
+  // JavaScript code to toggle Experience section details
+  function toggleDetails(element) {
+    const experienceDetails = element.querySelector(".experience-details");
+
+    if (!element.classList.contains("active")) {
+      // Show the experience details when the Experience and Education section is clicked
+      element.classList.add("active");
+      experienceDetails.style.opacity = "1";
+      experienceDetails.style.animation = "fade-in 0.5s forwards";
+       // Hide the skills section
+      const skillsSection = document.querySelector(".skills-section");
+      skillsSection.style.transform = "translateY(0)";
+      skillsSection.style.opacity = "1";
+    } else {
+      // Hide the experience details and skills section when the Experience and Education section is clicked again
+      element.classList.remove("active");
+      experienceDetails.style.opacity = "0";
+      // Hide the skills section
+      const skillsSection = document.querySelector(".skills-section");
+      skillsSection.style.transform = "translateY(100px)";
+      skillsSection.style.opacity = "0";
+    }
+  }
+
+  // JavaScript code to activate Skills section
+  function activateSkills(element) {
+    element.classList.toggle("active");
+  }
+    // Add an event listener to the document to handle clicks outside the Experience and Education section
+  document.addEventListener("click", (event) => {
+    const experienceSection = document.querySelector(".cv-section");
+    const skillsSection = document.querySelector(".skills-section");
+    const educationSection = document.querySelector(".education-section");
+    const aboutMeSection = document.querySelector(".about-me-section");
+
+    // Check if the clicked element is outside the Experience and Education section, Skills section, and About Me section
+    if (!experienceSection.contains(event.target) && !skillsSection.contains(event.target) && !educationSection.contains(event.target) && !aboutMeSection.contains(event.target)) {
+      experienceSection.classList.remove("active");
+      skillsSection.style.transform = "translateY(100px)";
+      skillsSection.style.opacity = "0";
+    }
+  });
+  // Auto writing effect for the About Me section
+function autoWriteAboutMe() {
+  const aboutMeText = "I am Saraansh Batra, a medical student, and a partime web developer.";
+  const aboutMeElement = document.getElementById("aboutMeText");
+  let charIndex = 0;
+
+  function typeCharacter() {
+    if (charIndex < aboutMeText.length) {
+      aboutMeElement.textContent += aboutMeText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeCharacter, 100); // Adjust the typing speed here (lower value means faster)
+    } else {
+      setTimeout(reverseAutoWriteAboutMe, 2000); // Gap of 2 seconds before reversing
+    }
+  }
+   typeCharacter();
+}
+  // Reverse auto writing effect for the About Me section
+function reverseAutoWriteAboutMe() {
+  const aboutMeText = "I am Saraansh Batra, a medical student, and a partime web developer.";
+  const aboutMeElement = document.getElementById("aboutMeText");
+  let charIndex = aboutMeText.length - 1;
+
+  function eraseCharacter() {
+    if (charIndex >= 0) {
+      aboutMeElement.textContent = aboutMeText.substring(0, charIndex);
+      charIndex--;
+      setTimeout(eraseCharacter, 20); // Adjust the typing speed here (lower value means faster)
+    } else {
+      autoWriteAboutMe();
+    }
+  }
+   eraseCharacter();
+}
+
+// Start the auto writing effect
+autoWriteAboutMe();
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const gifOverlay = document.getElementById("gifOverlay");
+
+  // Hide the overlay and GIF after 2 seconds
+  setTimeout(() => {
+    gifOverlay.classList.add("fade-out");
+  }, 2000);
+});
+</script>
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
